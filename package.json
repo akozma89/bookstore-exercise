@@ -1,0 +1,23 @@
+{
+  "name": "bookstore-exercise",
+  "version": "1.0.0",
+  "description": "Little client side bookstore exercise.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kala89/bookstore-exercise.git"
+  },
+  "keywords": [
+    "book",
+    "api",
+    "exercise"
+  ],
+  "author": "Arpad Kozma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kala89/bookstore-exercise/issues"
+  },
+  "homepage": "https://github.com/kala89/bookstore-exercise#readme",
+  "devDependencies": {
+    "webpack": "^3.0.0"
+  }
+}
