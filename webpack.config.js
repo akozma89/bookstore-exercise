@@ -1,7 +1,8 @@
 var path                = require('path'),
-    HtmlWebpackPlugin   = require('html-webpack-plugin'),
+    webpack             = require('webpack'),
+    htmlWebpackPlugin   = require('html-webpack-plugin'),
     pageData            = require('./source/data/index.json'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin');
+    extractTextPlugin   = require('extract-text-webpack-plugin');
 
 var paths = {
     images:     './source/images/',
@@ -13,7 +14,7 @@ var paths = {
 module.exports = {
     entry: {
         app:    paths.js + 'index.js',
-        vendor: [ 'react', 'react-dom' ]
+        vendor: [ 'react', 'react-dom', 'react-bootstrap'  ]
     },
     output: {
         filename:   '[name].bundle.js',
@@ -22,7 +23,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test:       /.jsx?$/,
+                test:       /.(jsx|js)?$/,
                 loader:     'babel-loader',
                 exclude:    /(node_modules|.ejs?$)/,
                 query: {
@@ -32,23 +33,20 @@ module.exports = {
                     ]
                 }
             },
-            /*{
-                test:   /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            },
             {
-                test:   /\.scss$/,
-                use: ExtractTextPlugin.extract({
+                test:   /\.(scss|css)$/,
+                use: extractTextPlugin.extract({
                     use: [
-                        'sass-loader',
-                        'css-loader'
+                        {
+                            loader: "css-loader"
+                        },
+                        {
+                            loader: "sass-loader"
+                        }
                     ],
                     fallback: 'style-loader'
                 })
-            },*/
+            },
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
@@ -64,7 +62,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
+        new htmlWebpackPlugin({
             pageData:   pageData,
             favicon:    paths.images + 'book-favicon.png',
             template:   paths.templates + 'index.ejs',
@@ -74,6 +72,13 @@ module.exports = {
                 useShortDoctype:            true
             }
         }),
-        new ExtractTextPlugin('[name].css')
+        new extractTextPlugin({
+            filename: '[name].css',
+            allChunks: true
+        }),
+        new webpack.ProvidePlugin({
+            "React": "react",
+            "ReactDOM": "react-dom"
+        })
     ]
 };
