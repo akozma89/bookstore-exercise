@@ -1,11 +1,8 @@
 {
   "title": "Bookstore exercise",
   "react": {
-    "id": "bookstore-app"
-  },
-  "contact": {
-    "mail": "arpadkozma89@gmail.com",
-    "linkedin": "valami",
-    "phone": "xx-xx-xxx-xxxx"
+    "menu": "bookstore-menu",
+    "content": "bookstore-content",
+    "footer": "bookstore-footer"
   }
 }
