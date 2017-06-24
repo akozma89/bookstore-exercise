@@ -34,7 +34,7 @@ describe('index module', function() {
         expect(expectedResult).toEqual(expectedResult);
     });
 
-    it('should be able to Content component without crash', () => {
+    it('should be able to render Content component without crash', () => {
         // WHEN
         ReactDOM.render(
             <Content />,
@@ -45,7 +45,7 @@ describe('index module', function() {
         expect(expectedResult).toEqual(expectedResult);
     });
 
-    it('should be able to Footer component without crash', () => {
+    it('should be able to render Footer component without crash', () => {
         // WHEN
         ReactDOM.render(
             <Footer />,
