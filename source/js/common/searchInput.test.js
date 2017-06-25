@@ -1,5 +1,6 @@
 import BookSearchInput from '../common/searchInput';
 import { InputGroup, Button, FormControl, Glyphicon } from 'react-bootstrap/lib/';
+import { Link } from 'react-router-dom';
 
 import { shallow } from 'enzyme';
 
@@ -16,6 +17,7 @@ describe('BookSearchInput component', () => {
         expect(bookSearchInputWrapper.find(InputGroup)).toHaveLength(1);
         expect(bookSearchInputWrapper.find(FormControl)).toHaveLength(1);
         expect(bookSearchInputWrapper.find(InputGroup.Button)).toHaveLength(1);
+        expect(bookSearchInputWrapper.find(Link)).toHaveLength(1);
         expect(bookSearchInputWrapper.find(Button)).toHaveLength(1);
         expect(bookSearchInputWrapper.find(Glyphicon)).toHaveLength(1);
     });
