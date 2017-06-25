@@ -7,7 +7,7 @@ class Menu extends React.Component {
         return (
             <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
-                    <Link to="./">
+                    <Link to="/">
                         <Navbar.Brand>
                             <Glyphicon glyph="book" />A Book-Store
                         </Navbar.Brand>
