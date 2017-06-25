@@ -9,11 +9,11 @@ const RootConfig = [
         component: Cart
     },
     {
-        path: '/books',
+        path: '/books/:query',
         component: Books
     },
     {
-        path: '/books/:id',
+        path: '/book/:id',
         component: Book
     }
 ];
