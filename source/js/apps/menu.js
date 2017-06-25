@@ -1,4 +1,5 @@
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Glyphicon } from 'react-bootstrap/lib/';
+import { Navbar, Nav, Glyphicon } from 'react-bootstrap/lib/';
+import { Link } from 'react-router-dom';
 import BookSearchInput from '../common/searchInput';
 
 class Menu extends React.Component {
@@ -6,9 +7,11 @@ class Menu extends React.Component {
         return (
             <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
-                    <Navbar.Brand>
-                        <Glyphicon glyph="book" />A Book-Store
-                    </Navbar.Brand>
+                    <Link to="./">
+                        <Navbar.Brand>
+                            <Glyphicon glyph="book" />A Book-Store
+                        </Navbar.Brand>
+                    </Link>
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
@@ -16,7 +19,9 @@ class Menu extends React.Component {
                         <Navbar.Form pullLeft>
                             <BookSearchInput />
                         </Navbar.Form>
-                        <NavItem eventKey={2} href="#"><Glyphicon glyph="shopping-cart" /></NavItem>
+                        <Link to="./cart">
+                            <Glyphicon glyph="shopping-cart" />
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

@@ -1,8 +1,6 @@
 {
   "title": "Bookstore exercise",
   "react": {
-    "menu": "bookstore-menu",
-    "content": "bookstore-content",
-    "footer": "bookstore-footer"
+    "router": "bookstore-router"
   }
 }

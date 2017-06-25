@@ -7,18 +7,17 @@ import Menu from './apps/menu';
 import Content from './apps/content';
 import Footer from './apps/footer';
 
-ReactDOM.render(
-    <Menu />,
-    document.getElementById('bookstore-menu') || document.createElement('div')
-);
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
-    <Content />,
-    document.getElementById('bookstore-content') || document.createElement('div')
+    (
+        <Router>
+            <div id="bookstore-app">
+                <Menu />
+                <Content />
+                <Footer />
+            </div>
+        </Router>
+    ),
+    document.getElementById('bookstore-router') || document.createElement('div')
 );
-
-ReactDOM.render(
-    <Footer />,
-    document.getElementById('bookstore-footer') || document.createElement('div')
-);
-
