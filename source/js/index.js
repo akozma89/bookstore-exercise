@@ -7,7 +7,7 @@ import Menu from './apps/menu';
 import Content from './apps/content';
 import Footer from './apps/footer';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
     (
