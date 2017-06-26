@@ -6,7 +6,8 @@
     "start": "webpack-dev-server --open",
     "webpack": "webpack",
     "webpack-watch": "npm run webpack -- --progress --watch",
-    "test": "jest"
+    "test": "jest --verbose",
+    "test-watch": "npm run test -- --watch --verbose"
   },
   "repository": {
     "type": "git",

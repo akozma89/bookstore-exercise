@@ -1,5 +1,5 @@
 import { Grid } from 'react-bootstrap/lib/';
-import { BrowserRouter as Router, Route, Switch, withRouter, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import RootConfig from '../helpers/routes.config';
 import Home from '../sections/home';
 
