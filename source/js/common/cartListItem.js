@@ -20,6 +20,13 @@ class CartListItem extends React.Component {
         const cartList = this.props.storage.cart.map((cartItem) => {
             return this.buildCartItems(cartItem);
         });
+
+        if (!cartList.length) {
+            return (
+                <p>Your cart is empty.</p>
+            );
+        }
+
         return (
             <ListGroup>
                 {cartList}
