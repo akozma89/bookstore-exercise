@@ -44,7 +44,7 @@ class Book extends React.Component {
     }
 
     addToCart() {
-        console.log('sessionstorage: ', BookStorage.get());
+        BookStorage.addToCart(this.state.Book);
     }
 
     componentWillMount() {

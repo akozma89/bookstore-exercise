@@ -1,24 +1,49 @@
-const storageKey = '__BookStorage__';
+const storageKey = '__BookStorage.Cart__';
 
 
 const BookStorage = {
+    initStorage: (object) => {
+        const defaultStorage = {
+            cart: []
+        };
+
+        BookStorage.set(JSON.stringify(defaultStorage));
+
+        return defaultStorage;
+    },
+    addToCart: (object) => {
+        const storage = BookStorage.get();
+        let isInCart;
+
+        object.quantity = 1;
+
+        storage.cart.map((book) => {
+            if (book.id === object.id) {
+                book.quantity++;
+                isInCart = true;
+            }
+
+            return book;
+        });
+
+        if (!isInCart) {
+            storage.cart.push(object);
+        }
+
+        return BookStorage.set(storage);
+    },
     set: (object) => {
         const newObject = JSON.stringify(object);
 
-        return sessionStorage.setItem(storageKey, newObject);
+        sessionStorage.setItem(storageKey, newObject);
+
+        return newObject;
     },
     get: () => {
-        if (!sessionStorage.getItem(storageKey)) {
-            const defaultStorage = {
-                cart: []
-            };
+        const storage = JSON.parse(sessionStorage.getItem(storageKey));
 
-            sessionStorage.setItem(storageKey, defaultStorage);
-        }
-
-        return sessionStorage.getItem(storageKey);
+        return storage && storage.cart ? storage : BookStorage.initStorage();
     }
 };
-
 
 export default BookStorage;
