@@ -19,7 +19,7 @@ class Menu extends React.Component {
                         <Navbar.Form pullLeft>
                             <BookSearchInput />
                         </Navbar.Form>
-                        <Link to="./cart">
+                        <Link to="/cart">
                             <Glyphicon glyph="shopping-cart" />
                         </Link>
                     </Nav>
