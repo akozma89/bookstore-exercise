@@ -35,6 +35,14 @@ const BookStorage = {
     removeFromCart: (object) => {
         const storage = BookStorage.get(),
             newStorage = storage;
+
+        newStorage.cart = storage.cart.filter((book) => book.id !== object.id);
+
+        return BookStorage.set(newStorage);
+    },
+    removeOneFromCart: (object) => {
+        const storage = BookStorage.get(),
+            newStorage = storage;
         
         newStorage.cart = storage.cart.filter((book) => {
             if (book.id === object.id) {
@@ -51,7 +59,7 @@ const BookStorage = {
 
         sessionStorage.setItem(storageKey, newObject);
 
-        return newObject;
+        return object;
     },
     get: () => {
         const storage = JSON.parse(sessionStorage.getItem(storageKey));
