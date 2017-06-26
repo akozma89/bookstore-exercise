@@ -32,6 +32,20 @@ const BookStorage = {
 
         return BookStorage.set(storage);
     },
+    removeFromCart: (object) => {
+        const storage = BookStorage.get(),
+            newStorage = storage;
+        
+        newStorage.cart = storage.cart.filter((book) => {
+            if (book.id === object.id) {
+                book.quantity--;
+            }
+
+            return book.quantity > 0;
+        });
+
+        return BookStorage.set(newStorage);
+    },
     set: (object) => {
         const newObject = JSON.stringify(object);
 
