@@ -9,7 +9,7 @@ class Content extends React.Component {
             <Grid>
                 <Route exact path="/" component={Home}/>
                 {RootConfig.map((route, index) => (
-                    <Route key={index} path={route.path} component={route.component} />
+                    <Route exact key={index} path={route.path} component={route.component} />
                 ))}
             </Grid>
         );
