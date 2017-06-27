@@ -2,6 +2,13 @@
 
 nav {
     .navbar-header span {
-        margin-right: 10px;
+        margin-right: $margin-small;
+    }
+}
+.navbar-form {
+    text-align: right;
+
+    span + a {
+        margin-left: $margin-small;
     }
 }
