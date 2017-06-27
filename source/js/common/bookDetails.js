@@ -1,34 +1,37 @@
-import {Row, Button } from 'react-bootstrap/lib/';
+import { Row, Col, Panel, Label } from 'react-bootstrap/lib/';
 import AddToCartButton from '../common/addToCartButton';
+import CustomList from '../common/unorderedList';
 import noImage from '../../images/no-image-available.jpg';
 
 class BookDetails extends React.Component {
     constructor(props) {
         super(props);
 
-        this.removeHTMLTags         = this.removeHTMLTags.bind(this);
-        this.createAuthorsBlock     = this.createAuthorsBlock.bind(this);
-        this.createISBNBlock        = this.createISBNBlock.bind(this);
+        this.removeHTMLTags = this.removeHTMLTags.bind(this);
+        this.buildPriceBlock = this.buildPriceBlock.bind(this);
     }
 
     removeHTMLTags(text) {
         return text.replace(/<\/?[^>]+(>|$)/g, "");
     }
 
-    createAuthorsBlock(authors, date) {
-        const authorsList = authors.join(', ');
+    buildPriceBlock(book) {
+        const retail = book.saleInfo;
+
+        if (!retail) {
+            return (
+                <div key={'priceblock-none'} className={'price-block out-of-stock'}>
+                    <Label bsStyle="danger">Out of stock</Label>
+                </div>
+            );
+        }
 
         return (
-            <span>{`By ${authorsList}${date ? ` - ${date}` : '' }`}</span>
+            <div key={'priceblock-available'} className={'price-block'}>
+                <h2>{`${retail.price.amount} ${retail.price.currencyCode}`}</h2>
+                <AddToCartButton book={book} />
+            </div>
         );
-    }
-
-    createISBNBlock(identifiers) {
-        return identifiers.map((item, index) => {
-            return (
-                <span key={`id_${index}`}>{`${item.type}:${item.identifier}`}</span>
-            );
-        });
     }
 
     render() {
@@ -36,29 +39,31 @@ class BookDetails extends React.Component {
 
         if (book) {
             return (
-                <Row>
-                    <h1>
-                        {book.title}<br />
-                    </h1>
-                    <p>
-                        {book.authors && this.createAuthorsBlock(book.authors, book.publishedDate)}<br />
-                        {book.industryIdentifiers && this.createISBNBlock(book.industryIdentifiers)}
-                    </p>
-
-                    <p>
-                        <img src={book.images ? book.images.medium : noImage} />
-                        {book.description && this.removeHTMLTags(book.description)}
-                    </p>
-
-                    <AddToCartButton book={book} />
+                <Row bsClass={'book-details row'}>
+                    <Panel header={book.title} bsStyle="info">
+                        <Row>
+                            <Col xs={12}>
+                                <h2>{`${(book.authors.length === 1) ? 'Author:' : 'Authors:'}`}</h2>
+                                <CustomList customList={book.authors} />
+                                {this.buildPriceBlock(book)}
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={12}>
+                                <h2>Description</h2>
+                                <p>
+                                    <img src={book.images ? book.images.medium : noImage} />
+                                    {book.description && this.removeHTMLTags(book.description)}
+                                </p>
+                            </Col>
+                        </Row>
+                    </Panel>
                 </Row>
             );
         }
 
         return (
-            <Row>
-                <p>Sorry, We can't find this book :(</p>
-            </Row>
+            <Row />
         );
     }
 }

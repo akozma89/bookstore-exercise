@@ -1,0 +1,68 @@
+@import '../variables.scss';
+
+.book-details {
+  & .row:first-of-type h2 {
+    display: inline-block;
+    margin: 0 $margin-small 0 0;
+  }
+
+  h2 {
+    margin: $margin-small 0;
+
+  }
+
+  & ul:first-of-type {
+    display: inline-block;
+
+    & li {
+      display: inline-block;
+    }
+
+    li + li {
+      margin-left: $margin-small;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+
+  }
+
+  ul, li {
+    padding: 0;
+  }
+
+  img {
+    float: right;
+    padding: 0 0 $padding-large $padding-large;
+    max-height: 400px;
+  }
+
+  .price-block {
+    float: right;
+    text-align: right;
+    display: flex;
+    align-items: center;
+
+    & > h2 {
+      margin: 0;
+    }
+
+    button {
+      margin-left: $margin-small;
+    }
+
+    &.out-of-stock {
+      font-size: $fs-medium;
+
+      .label-danger {
+        background-color: $alert-color;
+      }
+    }
+  }
+
+  .row + .row {
+    padding-top: $padding-medium;
+  }
+}

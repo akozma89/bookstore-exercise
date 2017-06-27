@@ -7,7 +7,7 @@ $accent-color:         #8BC34A;
 $primary-text-color:   #212121;
 $secondary-text-color: #757575;
 $divider-color:        #BDBDBD;
-$alert-color:          #e91e63;
+$alert-color:          #d9534f;
 
 /* FONT SIZES */
 $fs-default: 16px;
@@ -21,7 +21,5 @@ $margin-small: 10px;
 
 /* PADDINGS */
 $padding-small: 5px;
-$padding-medium: 10px;
-
-/* CAROUSEL */
-$carousel-bg-color: red;
+$padding-medium: $padding-small * 2;
+$padding-large: $padding-medium *2;
