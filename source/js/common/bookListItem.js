@@ -1,6 +1,7 @@
 import {Row, Col, Thumbnail, Button} from 'react-bootstrap/lib/';
 import { Link } from 'react-router-dom';
 import AddToCartButton from '../common/addToCartButton';
+import noImage from '../../images/no-image-available.jpg';
 
 class BookListItem extends React.Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class BookListItem extends React.Component {
     buildBookItem(book) {
         return (
             <Col xs={6} md={3} key={book.id}>
-                <Thumbnail src={book.images ? book.images.smallThumbnail : '/source/images/no-image-available.jpg'} alt={book.title}>
+                <Thumbnail src={book.images ? book.images.smallThumbnail : noImage} alt={book.title}>
                     <h3>{book.title}</h3>
                     <p>
                         <Link to={ `/book/${book.id}` }>

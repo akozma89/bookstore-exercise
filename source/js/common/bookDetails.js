@@ -1,5 +1,6 @@
 import {Row, Button } from 'react-bootstrap/lib/';
 import AddToCartButton from '../common/addToCartButton';
+import noImage from '../../images/no-image-available.jpg';
 
 class BookDetails extends React.Component {
     constructor(props) {
@@ -45,7 +46,7 @@ class BookDetails extends React.Component {
                     </p>
 
                     <p>
-                        <img src={book.images ? book.images.medium : '/source/images/no-image-available.jpg'} />
+                        <img src={book.images ? book.images.medium : noImage} />
                         {book.description && this.removeHTMLTags(book.description)}
                     </p>
 
