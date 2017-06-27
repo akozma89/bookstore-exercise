@@ -1,4 +1,5 @@
 import { Carousel } from 'react-bootstrap/lib/';
+import { Link } from 'react-router-dom';
 import BookApi from '../helpers/network';
 
 class BookCarousel extends React.Component {
@@ -42,11 +43,13 @@ class BookCarousel extends React.Component {
 
         return (
             <Carousel.Item key={carouselItem.id}>
-                <img src={carouselImage}/>
-                <Carousel.Caption>
-                    <h3>{carouselItem.title}</h3>
-                    <p>{carouselItem.description.length > maxDescriptionLength ? `${carouselItem.description.slice(0, maxDescriptionLength)}...` : carouselItem.description }</p>
-                </Carousel.Caption>
+                <Link to={`/book/${carouselItem.id}`} key={carouselItem.id}>
+                    <img src={carouselImage}/>
+                    <Carousel.Caption>
+                        <h3>{carouselItem.title}</h3>
+                        <p>{carouselItem.description.length > maxDescriptionLength ? `${carouselItem.description.slice(0, maxDescriptionLength)}...` : carouselItem.description }</p>
+                    </Carousel.Caption>
+                </Link>
             </Carousel.Item>
         );
     }
@@ -57,7 +60,7 @@ class BookCarousel extends React.Component {
 
     render() {
         return (
-            <Carousel controls={false}>
+            <Carousel controls={false} indicators={false}>
                 {this.state.carouselData}
             </Carousel>
         );

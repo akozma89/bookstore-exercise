@@ -1,0 +1,43 @@
+@import '../variables.scss';
+
+.carousel {
+  .carousel-inner {
+    padding: $padding-small;
+  }
+
+  .item {
+    & img {
+      float:left;
+      width: 10%;
+    }
+
+    & a, a:hover {
+      text-decoration: none;
+    }
+
+    & .carousel-caption {
+      text-align: left;
+      position: relative;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-width: 90%;
+      margin-left: 10%;
+      padding-left: $padding-medium;
+
+      h3 {
+        display: inline-block;
+        padding: $padding-medium;
+      }
+
+      p {
+        padding: $padding-small;
+      }
+
+      h3, p {
+        background-color: $primary-color;
+        margin: 0;
+      }
+    }
+  }
+}

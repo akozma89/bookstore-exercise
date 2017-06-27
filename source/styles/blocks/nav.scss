@@ -1,0 +1,33 @@
+@import '../variables.scss';
+
+#bookstore-app > nav {
+  margin-bottom: 0;
+  background-color: $primary-color-dark;
+  border-color: $divider-color;
+
+  .navbar-header span {
+    margin-right: $margin-small;
+  }
+
+  .navbar-form {
+    text-align: right;
+
+    span + a {
+      margin-left: $margin-small;
+    }
+  }
+
+  & a, a > span, button {
+    color: $primary-color-text;
+  }
+
+  & input {
+    border-color: #B3E5FC;
+  }
+
+  & .btn-default {
+    background-color: $primary-color-text;
+    color: $primary-color-dark;
+    border-color: #B3E5FC;
+  }
+}

@@ -8,7 +8,7 @@ const BookApi = {
         return fetch(`${googleBookAPIUrl}/${id}`);
     },
     getCarouselData: () => {
-        return fetch(`${googleBookAPIUrl}?q=javascript&printType=books&maxResults=1&orderBy=newest&showPreorders=true`);
+        return fetch(`${googleBookAPIUrl}?q=javascript&printType=books&maxResults=3&showPreorders=true`);
     }
 };
 

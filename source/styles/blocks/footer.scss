@@ -1,0 +1,30 @@
+@import '../variables.scss';
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: $primary-color-dark;
+
+  .container {
+    position: relative;
+    height: 100%;
+  }
+
+  ul {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  li + li {
+    margin-left: $margin-small;
+  }
+}

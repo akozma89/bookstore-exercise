@@ -1,14 +1,30 @@
 @import './variables.scss';
+@import './blocks/carousel.scss';
+@import './blocks/nav.scss';
+@import './blocks/footer.scss';
 
-nav {
-    .navbar-header span {
-        margin-right: $margin-small;
-    }
+html {
+  height: 100%;
 }
-.navbar-form {
-    text-align: right;
 
-    span + a {
-        margin-left: $margin-small;
-    }
+body {
+  background-color: $primary-color-light;
+  color: $primary-color-text;
+  min-height: 100%;
+  position: relative;
+
+  a {
+    color: $primary-color-text;
+  }
+
+  a:hover {
+    color: $primary-color-text;
+    text-decoration: underline;
+  }
+}
+
+#bookstore-app {
+  & > .container {
+    padding-bottom: 80px;
+  }
 }
