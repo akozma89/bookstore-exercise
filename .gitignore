@@ -4,3 +4,4 @@ node_modules
 /npm-debug.log
 dist/
 /**/**/__snapshots__/
+/debug.log
