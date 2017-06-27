@@ -11,7 +11,6 @@ class Book extends React.Component {
 
         this.getBookDetails = this.getBookDetails.bind(this);
         this.setBookDetails = this.setBookDetails.bind(this);
-        this.addToCart      = this.addToCart.bind(this);
     }
 
     setBookDetails(book) {
@@ -43,17 +42,13 @@ class Book extends React.Component {
         });
     }
 
-    addToCart() {
-        BookStorage.addToCart(this.state.Book);
-    }
-
     componentWillMount() {
         this.getBookDetails(this.props.match.params.id);
     }
 
     render() {
         return (
-            <BookDetails book={this.state.Book} cartHandler={this.addToCart}/>
+            <BookDetails book={this.state.Book} cartHandler={() => BookStorage.addToCart(this.state.Book)}/>
         );
     }
 }

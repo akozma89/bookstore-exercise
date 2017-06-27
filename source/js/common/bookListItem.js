@@ -1,5 +1,6 @@
 import {Row, Col, Thumbnail, Button} from 'react-bootstrap/lib/';
 import { Link } from 'react-router-dom';
+import AddToCartButton from '../common/addToCartButton';
 
 class BookListItem extends React.Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class BookListItem extends React.Component {
                         <Link to={ `/book/${book.id}` }>
                             <Button bsStyle="default">Read more</Button>
                         </Link>
+                        <AddToCartButton book={book} />
                     </p>
                 </Thumbnail>
             </Col>

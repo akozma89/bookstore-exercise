@@ -1,4 +1,5 @@
 import {Row, Button } from 'react-bootstrap/lib/';
+import AddToCartButton from '../common/addToCartButton';
 
 class BookDetails extends React.Component {
     constructor(props) {
@@ -48,15 +49,15 @@ class BookDetails extends React.Component {
                         {book.description && this.removeHTMLTags(book.description)}
                     </p>
 
-                    <Button onClick={this.props.cartHandler}>
-                        Add to cart
-                    </Button>
+                    <AddToCartButton book={book} />
                 </Row>
             );
         }
 
         return (
-            <Row />
+            <Row>
+                <p>Sorry, We can't find this book :(</p>
+            </Row>
         );
     }
 }
