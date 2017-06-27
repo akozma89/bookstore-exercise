@@ -14,7 +14,7 @@ class BookListItem extends React.Component {
         return (
             <Col xs={6} md={3} key={book.id}>
                 <Thumbnail src={book.images ? book.images.smallThumbnail : noImage} alt={book.title}>
-                    <h2>{book.title}</h2>
+                    <h2>{book.title.length < 65 ? book.title : `${book.title.slice(0, 64)}...` }</h2>
                     <div className="book-list-action-block">
                         <Link to={ `/book/${book.id}` }>
                             <Button bsStyle="default">Read more</Button>

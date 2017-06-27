@@ -16,7 +16,7 @@ describe('BookApi', () => {
         BookApi.list(mockQuery);
 
         // THEN
-        expect(fetch).toHaveBeenCalledWith(`${googleBookAPIUrl}?q=${mockQuery}&printType=books`);
+        expect(fetch).toHaveBeenCalledWith(`${googleBookAPIUrl}?q=${mockQuery}&printType=books&maxResults=3`);
         expect(fetch.mock.calls).toHaveLength(1);
     });
 

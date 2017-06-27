@@ -53,7 +53,7 @@ class BookDetails extends React.Component {
                                 <h2>Description</h2>
                                 <p>
                                     <img src={book.images ? book.images.medium : noImage} />
-                                    {book.description && this.removeHTMLTags(book.description)}
+                                    {book.description ? this.removeHTMLTags(book.description) : ('This book has no description.')}
                                 </p>
                             </Col>
                         </Row>

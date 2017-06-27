@@ -7,7 +7,7 @@
     "webpack": "webpack",
     "webpack-watch": "npm run webpack -- --progress --watch",
     "test": "jest --verbose",
-    "test-watch": "npm run test -- --watch --verbose"
+    "test-watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
