@@ -1,0 +1,10 @@
+@import './variables.scss';
+
+.panel {
+    border-color: $primary-color;
+
+    .panel-heading {
+        background-color: $primary-color;
+        color: $primary-color-text;
+    }
+}

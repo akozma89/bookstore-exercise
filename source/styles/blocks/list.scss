@@ -4,6 +4,8 @@
   .thumbnail {
     height: $thumb-max-size;
     position: relative;
+    box-shadow: 0 0 5px 1px $divider-color;
+    border:none;
 
     img {
       max-height: $thumb-max-size / 1.8;

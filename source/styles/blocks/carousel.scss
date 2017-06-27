@@ -6,6 +6,12 @@
   }
 
   .item {
+    transition: transform .5s ease-in;
+    
+    &.next, .next.left {
+      top: $padding-large;
+    }
+
     & img {
       float:left;
       width: 10%;

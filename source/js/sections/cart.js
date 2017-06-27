@@ -36,7 +36,7 @@ class Cart extends React.Component {
         return (
             <Row bsClass={'book-cart row'}>
                 <Col xs={12}>
-                    <Panel header={'Cart'} bsStyle="info">
+                    <Panel header={'Cart'}>
                         <CartListItem storage={this.state.storage} removeFromCart={this.removeFromCart} handleSubmit={this.submitCart} />
                     </Panel>
                 </Col>
