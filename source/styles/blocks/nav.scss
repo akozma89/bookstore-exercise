@@ -31,3 +31,10 @@
     border-color: #B3E5FC;
   }
 }
+
+@media (min-width: 768px) {
+  .navbar-collapse, .navbar-form {
+    padding-right: 0;
+  }
+
+}

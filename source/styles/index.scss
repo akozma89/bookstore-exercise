@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import './blocks/carousel.scss';
 @import './blocks/nav.scss';
+@import './blocks/cart.scss';
 @import './blocks/footer.scss';
 
 html {
@@ -13,18 +14,38 @@ body {
   min-height: 100%;
   position: relative;
 
-  a {
-    color: $primary-color-text;
+  a, p, h1, h2, h3, li {
+    color: $primary-text-color;
+  }
+
+  a, p, li {
+    font-size: $fs-default;
+  }
+
+  h1, .panel-heading {
+    font-size: $fs-large
+  }
+
+  h2 {
+    font-size: $fs-medium;
   }
 
   a:hover {
-    color: $primary-color-text;
+    color: $primary-text-color;
     text-decoration: underline;
+    cursor: pointer;
   }
 }
 
 #bookstore-app {
   & > .container {
+    padding-top: $padding-medium;
     padding-bottom: 80px;
+  }
+
+  .panel {
+    .panel-heading {
+
+    }
   }
 }

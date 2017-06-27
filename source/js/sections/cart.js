@@ -1,4 +1,4 @@
-import { Row } from 'react-bootstrap/lib/';
+import { Row, Panel, Col, Button } from 'react-bootstrap/lib/';
 import BookStorage from '../helpers/storage';
 import CartListItem from '../common/cartListItem';
 
@@ -12,6 +12,7 @@ class Cart extends React.Component {
 
         this.updateStorage  = this.updateStorage.bind(this);
         this.removeFromCart = this.removeFromCart.bind(this);
+        this.submitCart     = this.submitCart.bind(this);
     }
 
     updateStorage(newStorage) {
@@ -26,12 +27,21 @@ class Cart extends React.Component {
         this.updateStorage(newStorage);
     }
 
+    submitCart() {
+        BookStorage.initStorage();
+        this.props.history.push('/');
+    }
+
     render() {
         return (
-            <Row>
-                <h1>Cart</h1>
-                <CartListItem storage={this.state.storage} removeFromCart={this.removeFromCart} />
+            <Row bsClass={'book-cart row'}>
+                <Col xs={12}>
+                    <Panel header={'Cart'} bsStyle="info">
+                        <CartListItem storage={this.state.storage} removeFromCart={this.removeFromCart} handleSubmit={this.submitCart} />
+                    </Panel>
+                </Col>
             </Row>
+
         );
     }
 }

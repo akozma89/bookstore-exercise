@@ -1,2 +1,26 @@
 @import '../variables.scss';
 
+.book-cart {
+  .list-group-item {
+    .buttons {
+      float: right;
+      .glyphicon {
+        font-size: $fs-medium;
+        transition: transform .1s ease-in;
+      }
+
+      .glyphicon:hover {
+        transform: rotate(90deg);
+      }
+
+      .glyphicon-remove {
+        color: $alert-color;
+      }
+    }
+  }
+
+  .book-submit {
+    text-align: right;
+  }
+}
+

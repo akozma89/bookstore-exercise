@@ -1,5 +1,4 @@
-import { ListGroup, ListGroupItem } from 'react-bootstrap/lib/';
-import BookStorage from '../helpers/storage';
+import { ListGroup, ListGroupItem, Row, Col, Button, Glyphicon } from 'react-bootstrap/lib/';
 
 class CartListItem extends React.Component {
     constructor(props) {
@@ -11,7 +10,12 @@ class CartListItem extends React.Component {
     buildCartItems(cartItem) {
         return (
             <ListGroupItem key={cartItem.id}>
-                {cartItem.title} - <a onClick={() => this.props.removeFromCart(cartItem)}>Remove</a>
+                {cartItem.title}
+                <div className={'buttons'}>
+                    <a onClick={() => this.props.removeFromCart(cartItem)} title={'Remove'}>
+                        <Glyphicon glyph="remove" />
+                    </a>
+                </div>
             </ListGroupItem>
         );
     }
@@ -28,9 +32,16 @@ class CartListItem extends React.Component {
         }
 
         return (
-            <ListGroup>
-                {cartList}
-            </ListGroup>
+            <div>
+                <ListGroup>
+                    {cartList}
+                </ListGroup>
+                <Row bsClass={'book-submit row'}>
+                    <Col xs={12}>
+                        <Button bsStyle="success" onClick={this.props.handleSubmit}>Submit</Button>
+                    </Col>
+                </Row>
+            </div>
         );
     }
 }

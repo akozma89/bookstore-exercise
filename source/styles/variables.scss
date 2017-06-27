@@ -7,6 +7,14 @@ $accent-color:         #8BC34A;
 $primary-text-color:   #212121;
 $secondary-text-color: #757575;
 $divider-color:        #BDBDBD;
+$alert-color:          #e91e63;
+
+/* FONT SIZES */
+$fs-default: 16px;
+$fs-tiny: $fs-default / .75;
+$fs-small: $fs-default / .85;
+$fs-medium: $fs-default * 1.2;
+$fs-large: $fs-default * 1.5;
 
 /* MARGINS */
 $margin-small: 10px;
