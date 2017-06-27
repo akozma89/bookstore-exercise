@@ -22,7 +22,7 @@ class Cart extends React.Component {
     }
 
     removeFromCart(cartItem) {
-        const newStorage = BookStorage.removeFromCart(cartItem);
+        const newStorage = BookStorage.removeFromStorage(cartItem);
 
         this.updateStorage(newStorage);
     }

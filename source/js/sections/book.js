@@ -48,7 +48,7 @@ class Book extends React.Component {
 
     render() {
         return (
-            <BookDetails book={this.state.Book} cartHandler={() => BookStorage.addToCart(this.state.Book)}/>
+            <BookDetails book={this.state.Book} cartHandler={() => BookStorage.addToStorage(this.state.Book)}/>
         );
     }
 }
