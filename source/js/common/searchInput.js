@@ -4,11 +4,21 @@ import { Link } from 'react-router-dom';
 class BookSearchInput extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             searchValue: ""
         };
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange   = this.handleChange.bind(this);
+        this.redirectToBook = this.redirectToBook.bind(this);
+    }
+
+    redirectToBook() {
+        if (this.state.searchValue) {
+            ReactDOM.findDOMNode(this.goToBook).click();
+        } else {
+            ReactDOM.findDOMNode(this.searchInput).focus();
+        }
     }
 
     handleChange(event) {
@@ -25,13 +35,13 @@ class BookSearchInput extends React.Component {
                     value={this.state.searchValue}
                     placeholder="Search for a Book"
                     onChange={this.handleChange}
+                    ref={(input) => { this.searchInput = input; }}
                 />
                 <InputGroup.Button>
-                    <Link to={ `/books/${this.state.searchValue}` }>
-                        <Button>
-                            <Glyphicon glyph="search" />
-                        </Button>
-                    </Link>
+                    <Button onClick={() => this.redirectToBook()}>
+                        <Glyphicon glyph="search" />
+                    </Button>
+                    <Link to={`/books/${this.state.searchValue}`} ref={(link) => { this.goToBook = link; }}/>
                 </InputGroup.Button>
             </InputGroup>
         );

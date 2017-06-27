@@ -1,4 +1,4 @@
-import { Row, Panel, Col, Button } from 'react-bootstrap/lib/';
+import { Row, Panel, Col } from 'react-bootstrap/lib/';
 import BookStorage from '../helpers/storage';
 import CartListItem from '../common/cartListItem';
 
