@@ -14,13 +14,13 @@ class BookListItem extends React.Component {
         return (
             <Col xs={6} md={3} key={book.id}>
                 <Thumbnail src={book.images ? book.images.smallThumbnail : noImage} alt={book.title}>
-                    <h3>{book.title}</h3>
-                    <p>
+                    <h2>{book.title}</h2>
+                    <div className="book-list-action-block">
                         <Link to={ `/book/${book.id}` }>
                             <Button bsStyle="default">Read more</Button>
                         </Link>
                         <AddToCartButton book={book} />
-                    </p>
+                    </div>
                 </Thumbnail>
             </Col>
         );
@@ -44,7 +44,7 @@ class BookListItem extends React.Component {
         }
 
         return (
-            <div>
+            <div className="book-list-content">
                 {BookRows}
             </div>
         );

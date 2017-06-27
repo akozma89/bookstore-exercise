@@ -1,3 +1,4 @@
+import {Row, Col, Panel} from 'react-bootstrap/lib/';
 import BookListItem from '../common/bookListItem';
 import BookApi from '../helpers/network';
 
@@ -50,10 +51,14 @@ class Books extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Search results for: "{this.props.match.params.query}"</h1>
-                <BookListItem books={this.state.BookList}/>
-            </div>
+            <Row bsClass="book-list row">
+                <Col xs={12}>
+                    <Panel header={`Search results for: "${this.props.match.params.query}"`}>
+                        <BookListItem books={this.state.BookList}/>
+                    </Panel>
+                </Col>
+
+            </Row>
         );
     }
 }

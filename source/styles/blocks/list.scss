@@ -1,0 +1,38 @@
+@import '../variables.scss';
+
+.book-list-content {
+  .thumbnail {
+    height: $thumb-max-size;
+    position: relative;
+
+    img {
+      max-height: $thumb-max-size / 1.8;
+    }
+
+    .caption{
+      position: absolute;
+      left: 0;
+      bottom: 5px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-top: 0;
+      background-color: $primary-color-text;
+    }
+
+    .book-list-action-block {
+      display: flex;
+      align-items: stretch;
+      padding-top: $padding-small;
+
+      button {
+        flex: 1;
+      }
+
+      a + button {
+        margin-left: $margin-small;
+      }
+    }
+  }
+}

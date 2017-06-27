@@ -3,6 +3,7 @@
 @import './blocks/nav.scss';
 @import './blocks/cart.scss';
 @import './blocks/details.scss';
+@import './blocks/list.scss';
 @import './blocks/footer.scss';
 
 html {
@@ -42,11 +43,5 @@ body {
   & > .container {
     padding-top: $padding-medium;
     padding-bottom: 80px;
-  }
-
-  .panel {
-    .panel-heading {
-
-    }
   }
 }
