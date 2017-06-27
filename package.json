@@ -43,6 +43,7 @@
     "jest": "^20.0.4",
     "jest-enzyme": "^3.3.0",
     "jest-fetch-mock": "^1.1.1",
+    "jest-localstorage-mock": "^1.2.0",
     "node-sass": "^4.5.3",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
@@ -69,7 +70,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "identity-obj-proxy"
+      "^.+\\.(css|scss)$": "identity-obj-proxy",
+      "^.+\\.(jpg|png)$": "<rootDir>/jest.empty.module.js"
     },
     "setupFiles": [
       "./jest.setup.js"

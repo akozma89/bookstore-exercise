@@ -2,20 +2,18 @@ const storageKey = '__BookStorage.Cart__';
 
 
 const BookStorage = {
-    initStorage: (object) => {
+    initStorage: () => {
         const defaultStorage = {
             cart: []
         };
 
-        BookStorage.set(JSON.stringify(defaultStorage));
+        BookStorage.set(defaultStorage);
 
         return defaultStorage;
     },
-    addToCart: (object) => {
+    addToStorage: (object) => {
         const storage = BookStorage.get();
         let isInCart;
-
-        object.quantity = 1;
 
         storage.cart.map((book) => {
             if (book.id === object.id) {
@@ -27,12 +25,14 @@ const BookStorage = {
         });
 
         if (!isInCart) {
+            object.quantity = 1;
+            
             storage.cart.push(object);
         }
 
         return BookStorage.set(storage);
     },
-    removeFromCart: (object) => {
+    removeFromStorage: (object) => {
         const storage = BookStorage.get(),
             newStorage = storage;
 
@@ -40,7 +40,7 @@ const BookStorage = {
 
         return BookStorage.set(newStorage);
     },
-    removeOneFromCart: (object) => {
+    removeOneFromStorage: (object) => {
         const storage = BookStorage.get(),
             newStorage = storage;
         
