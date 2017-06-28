@@ -2,6 +2,7 @@ import {Row, Col, Panel} from 'react-bootstrap/lib/';
 import BookListItem from '../components/bookListItem';
 import BookPagination from '../components/pagination';
 import BookApi from '../helpers/network';
+import buildBookObject  from '../helpers/bookObject';
 
 class Books extends React.Component {
     constructor(props) {
@@ -26,16 +27,7 @@ class Books extends React.Component {
             throw Error('Something went wrong');
         }
 
-        const BookList = data.items.map((item) => {
-            const itemVolumeInfo = item.volumeInfo;
-
-            return {
-                id:         item.id,
-                title:      itemVolumeInfo.title,
-                images:     itemVolumeInfo.imageLinks,
-                saleInfo:   item.saleInfo && item.saleInfo.saleability === 'FOR_SALE' && true
-            };
-        });
+        const BookList = data.items.map((book) => buildBookObject(book));
 
         this.setState({
             BookList: BookList

@@ -1,10 +1,12 @@
-import BookDetails from '../components/BookDetails';
-import BookApi from '../helpers/network';
-import BookStorage from '../helpers/storage';
+import BookDetails      from '../components/bookDetails';
+import BookApi          from '../helpers/network';
+import BookStorage      from '../helpers/storage';
+import buildBookObject  from '../helpers/bookObject';
 
 class Book extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             Book: null
         };
@@ -18,21 +20,8 @@ class Book extends React.Component {
             throw Error('Something went wrong. There is no book to show.');
         }
 
-        const bookVolumeInfo = book.volumeInfo;
-
         this.setState({
-            Book: {
-                id:                     book.id,
-                title:                  bookVolumeInfo.title,
-                description:            bookVolumeInfo.description,
-                images:                 bookVolumeInfo.imageLinks,
-                authors:                bookVolumeInfo.authors,
-                publishedDate:          bookVolumeInfo.publishedDate,
-                industryIdentifiers:    bookVolumeInfo.industryIdentifiers,
-                saleInfo:               (book.saleInfo && book.saleInfo.saleability === 'FOR_SALE') && {
-                    price: book.saleInfo.listPrice
-                }
-            }
+            Book: buildBookObject(book)
         });
     }
 
