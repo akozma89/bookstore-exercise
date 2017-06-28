@@ -2,6 +2,7 @@ import { Row, Panel, Col }  from 'react-bootstrap/lib/';
 
 import BookStorage          from '../helpers/storage';
 import CartListItem         from '../components/cartListItem';
+import BookModal            from '../components/modal';
 import BookNotifications    from '../components/notifications';
 
 class Cart extends React.Component {
@@ -10,7 +11,8 @@ class Cart extends React.Component {
 
         this.state = {
             storage: BookStorage.get(),
-            action: null
+            action: null,
+            submitted: false
         };
 
         this.updateStorage      = this.updateStorage.bind(this);
@@ -67,9 +69,11 @@ class Cart extends React.Component {
     }
 
     submitCart() {
-        BookStorage.initStorage();
+        this.setState({
+            submitted: true
+        });
 
-        this.props.history.push('/');
+        BookStorage.initStorage();
     }
 
     render() {
@@ -85,8 +89,13 @@ class Cart extends React.Component {
                         <CartListItem storage={this.state.storage} addOneToCart={this.addOneToCart} removeOneFromCart={this.removeOneFromCart} removeFromCart={this.removeFromCart} handleSubmit={this.submitCart} />
                     </Panel>
                 </Col>
-            </Row>
 
+                <BookModal showModal={this.state.submitted}
+                    dissmissModal={() => this.props.history.push('/')}
+                    modalTitle="Thank you for your purchase"
+                    modalContent={`Belly provide train project concepts skyline thought, has front twice it the upon experiments what based versus have been if was and as incurred lift sleepiness he rethoric way. Getting said any I officers. The it feedback queen's his refinement of to lieutenantgeneral little blind interesting respond and then title as the all failures coffee links line parts bedding work, you to and hundreds its volumes the of it be go with review, now, in good saw doing clean think a clue away. Everything studies business way voice being wasn't the feel while easier copy I actually these legs of.`}
+                />
+            </Row>
         );
     }
 }

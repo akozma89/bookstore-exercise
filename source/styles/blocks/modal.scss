@@ -1,0 +1,14 @@
+@import '../variables.scss';
+
+.modal-dialog .modal-header {
+  background-color: $accent-color;
+
+  > button {
+    opacity: .9;
+    color: $primary-color-text;
+  }
+}
+
+.modal-dialog .modal-footer {
+  text-align: center;
+}
