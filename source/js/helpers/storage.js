@@ -1,15 +1,14 @@
-const storageKey = '__BookStorage.Cart__',
-      defaultStorage = {
-          cart: []
-      };
+const storageKey = '__BookStorage.Cart__';
 
 const BookStorage = {
     initStorage: () => {
-        sessionStorage.clear(storageKey);
+        const emptyStorage = {
+            cart: []
+        };
 
-        BookStorage.set(defaultStorage);
+        BookStorage.set(emptyStorage);
 
-        return defaultStorage;
+        return emptyStorage;
     },
     addToStorage: (object) => {
         const storage = BookStorage.get();

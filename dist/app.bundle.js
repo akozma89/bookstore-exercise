@@ -31759,18 +31759,17 @@ var _stringify2 = _interopRequireDefault(_stringify);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var storageKey = '__BookStorage.Cart__',
-    defaultStorage = {
-    cart: []
-};
+var storageKey = '__BookStorage.Cart__';
 
 var BookStorage = {
     initStorage: function initStorage() {
-        sessionStorage.clear(storageKey);
+        var emptyStorage = {
+            cart: []
+        };
 
-        BookStorage.set(defaultStorage);
+        BookStorage.set(emptyStorage);
 
-        return defaultStorage;
+        return emptyStorage;
     },
     addToStorage: function addToStorage(object) {
         var storage = BookStorage.get();
@@ -47323,10 +47322,9 @@ var Cart = function (_React$Component) {
         key: 'submitCart',
         value: function submitCart() {
             this.setState({
+                storage: _storage2.default.initStorage(),
                 submitted: true
             });
-
-            _storage2.default.initStorage();
         }
     }, {
         key: 'render',
@@ -47336,14 +47334,15 @@ var Cart = function (_React$Component) {
             return React.createElement(
                 _lib.Row,
                 { bsClass: 'book-cart row' },
-                React.createElement(
+                !this.state.submitted && React.createElement(
                     _lib.Col,
                     { xs: 12 },
                     React.createElement(
                         _lib.Panel,
                         { header: 'Cart' },
-                        this.state.action ? React.createElement(_notifications2.default, { action: this.state.action.action, style: this.state.action.style, title: this.state.action.title, removeNotification: this.removeNotification }) : '',
-                        React.createElement(_cartListItem2.default, { storage: this.state.storage, addOneToCart: this.addOneToCart, removeOneFromCart: this.removeOneFromCart, removeFromCart: this.removeFromCart, handleSubmit: this.submitCart })
+                        this.state.action && React.createElement(_notifications2.default, { action: this.state.action.action, style: this.state.action.style, title: this.state.action.title, removeNotification: this.removeNotification }),
+                        React.createElement(_cartListItem2.default, { storage: this.state.storage, addOneToCart: this.addOneToCart, removeOneFromCart: this.removeOneFromCart, removeFromCart: this.removeFromCart, handleSubmit: this.submitCart }),
+                        '}'
                     )
                 ),
                 React.createElement(_modal2.default, { showModal: this.state.submitted,

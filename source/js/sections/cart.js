@@ -70,25 +70,25 @@ class Cart extends React.Component {
 
     submitCart() {
         this.setState({
+            storage: BookStorage.initStorage(),
             submitted: true
         });
-
-        BookStorage.initStorage();
     }
 
     render() {
         return (
             <Row bsClass={'book-cart row'}>
-                <Col xs={12}>
-                    <Panel header={'Cart'}>
-                        {this.state.action ?
-                            <BookNotifications action={this.state.action.action} style={this.state.action.style} title={this.state.action.title} removeNotification={this.removeNotification} /> :
-                            ''
-                        }
+                {!this.state.submitted &&
+                    <Col xs={12}>
+                        <Panel header={'Cart'}>
+                            {this.state.action &&
+                                <BookNotifications action={this.state.action.action} style={this.state.action.style} title={this.state.action.title} removeNotification={this.removeNotification} />
+                            }
 
-                        <CartListItem storage={this.state.storage} addOneToCart={this.addOneToCart} removeOneFromCart={this.removeOneFromCart} removeFromCart={this.removeFromCart} handleSubmit={this.submitCart} />
-                    </Panel>
-                </Col>
+                            <CartListItem storage={this.state.storage} addOneToCart={this.addOneToCart} removeOneFromCart={this.removeOneFromCart} removeFromCart={this.removeFromCart} handleSubmit={this.submitCart} />}
+                        </Panel>
+                    </Col>
+                }
 
                 <BookModal showModal={this.state.submitted}
                     dissmissModal={() => this.props.history.push('/')}
