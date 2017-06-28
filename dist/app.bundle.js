@@ -35240,7 +35240,7 @@ var Menu = function (_React$Component) {
         value: function render() {
             return React.createElement(
                 _lib.Navbar,
-                { inverse: true, collapseOnSelect: true },
+                { collapseOnSelect: true },
                 React.createElement(
                     _lib.Navbar.Header,
                     null,
@@ -35265,11 +35265,16 @@ var Menu = function (_React$Component) {
                         React.createElement(_searchInput2.default, null),
                         React.createElement(
                             _reactRouterDom.Link,
-                            { to: '/cart' },
+                            { to: '/cart', className: 'menu-cart-button' },
                             React.createElement(
                                 _lib.Button,
                                 null,
-                                React.createElement(_lib.Glyphicon, { glyph: 'shopping-cart' })
+                                React.createElement(_lib.Glyphicon, { glyph: 'shopping-cart', className: 'hidden-xs' }),
+                                React.createElement(
+                                    'span',
+                                    { className: 'hidden-sm hidden-md hidden-lg' },
+                                    'Go to Cart'
+                                )
                             )
                         )
                     )
@@ -46677,7 +46682,7 @@ var BookListItem = function (_React$Component) {
 
             return React.createElement(
                 _lib.Col,
-                { xs: 12, md: 6, lg: 3, key: book.id },
+                { xs: 12, sm: 6, lg: 3, key: book.id },
                 React.createElement(
                     _lib.Thumbnail,
                     { src: book.images ? book.images.smallThumbnail : _noImageAvailable2.default, alt: book.title },
