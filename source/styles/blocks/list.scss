@@ -8,6 +8,7 @@
     border:none;
 
     img {
+      height: 100%;
       max-height: $thumb-max-size / 1.8;
     }
 
@@ -19,6 +20,8 @@
     }
 
     h2 {
+      padding: $padding-small;
+      border-radius: 2px;
       margin-top: 0;
       background-color: $primary-color-text;
     }
