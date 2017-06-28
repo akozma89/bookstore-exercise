@@ -4,8 +4,8 @@
   "description": "Little client side bookstore exercise.",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "webpack": "webpack",
-    "webpack-watch": "npm run webpack -- --progress --watch",
+    "build": "webpack",
+    "build-watch": "npm run build -- --progress --watch",
     "test": "jest --verbose",
     "test-watch": "npm run test -- --watch"
   },

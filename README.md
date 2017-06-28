@@ -7,8 +7,8 @@ This is a little bookstore exercise based on React, react-dom-router, react-boot
 
 ## NPM scripts
 * ```npm start```<br>Run webpack-dev-server
-* ```npm webpack```<br>Run webpack to build
-* ```npm webpack-watch```<br>Run webpack to build and watch for changes
+* ```npm build```<br>Run webpack to build
+* ```npm build-watch```<br>Run webpack to build and watch for changes
 * ```npm test```<br>Run jest for testing .test.js files
 * ```npm test-watch```<br>Run jest for testing .test.js files
 
