@@ -31766,6 +31766,8 @@ var storageKey = '__BookStorage.Cart__',
 
 var BookStorage = {
     initStorage: function initStorage() {
+        sessionStorage.clear(storageKey);
+
         BookStorage.set(defaultStorage);
 
         return defaultStorage;
