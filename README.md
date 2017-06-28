@@ -11,3 +11,7 @@ This is a little bookstore exercise based on React, react-dom-router, react-boot
 * ```npm webpack-watch```<br>Run webpack to build and watch for changes
 * ```npm test```<br>Run jest for testing .test.js files
 * ```npm test-watch```<br>Run jest for testing .test.js files
+
+## Notes
+* npm, node and packages are not necessary to have. There is a generated html in ```dist``` directy, just open it.
+* search for 'cica' word will grant you a list what contains books with 'Add to cart' button on it.
