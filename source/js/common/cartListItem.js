@@ -1,4 +1,4 @@
-import { InputGroup, FormControl, ListGroup, ListGroupItem, Row, Col, Button, Glyphicon } from 'react-bootstrap/lib/';
+import { ListGroup, ListGroupItem, Row, Col, Button, Glyphicon } from 'react-bootstrap/lib/';
 
 class CartListItem extends React.Component {
     constructor(props) {
@@ -10,13 +10,14 @@ class CartListItem extends React.Component {
     buildCartItems(cartItem) {
         return (
             <ListGroupItem key={cartItem.id}>
-                {cartItem.title}
+                {cartItem.title} -- <span>{`${cartItem.quantity} ${cartItem.quantity < 2 ? 'piece' : 'pieces'}`}</span>
                 <div className={'buttons'}>
-                    <InputGroup>
-                        <InputGroup.Addon onClick={() => this.props.removeOneFromCart(cartItem)}>-</InputGroup.Addon>
-                        <FormControl type="text" disabled={true} value={cartItem.quantity} />
-                        <InputGroup.Addon onClick={() => this.props.addOneToCart(cartItem)}>+</InputGroup.Addon>
-                    </InputGroup>
+                    <a onClick={() => this.props.removeOneFromCart(cartItem)} title={'Remove one piece'}>
+                        <Glyphicon glyph="minus" />
+                    </a>
+                    <a onClick={() => this.props.addOneToCart(cartItem)} title={'Add one piece'}>
+                        <Glyphicon glyph="plus" />
+                    </a>
                     <a onClick={() => this.props.removeFromCart(cartItem)} title={'Remove'}>
                         <Glyphicon glyph="remove" />
                     </a>

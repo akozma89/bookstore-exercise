@@ -4,17 +4,30 @@
   .list-group-item {
     .buttons {
       float: right;
+
+      a + a {
+        padding-left: $padding-large;
+      }
+
       .glyphicon {
         font-size: $fs-medium;
         transition: transform .1s ease-in;
       }
 
       .glyphicon:hover {
-        transform: rotate(90deg);
+        transform: scale(1.1);
       }
 
       .glyphicon-remove {
         color: $alert-color;
+      }
+
+      .glyphicon-plus {
+        color: $accent-color;
+      }
+
+      .glyphicon-minus {
+        color: $primary-color;
       }
     }
   }
