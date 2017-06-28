@@ -10,15 +10,29 @@ class Cart extends React.Component {
             storage: BookStorage.get()
         };
 
-        this.updateStorage  = this.updateStorage.bind(this);
-        this.removeFromCart = this.removeFromCart.bind(this);
-        this.submitCart     = this.submitCart.bind(this);
+        this.updateStorage      = this.updateStorage.bind(this);
+        this.addOneToCart       = this.addOneToCart.bind(this);
+        this.removeFromCart     = this.removeFromCart.bind(this);
+        this.removeOneFromCart  = this.removeOneFromCart.bind(this);
+        this.submitCart         = this.submitCart.bind(this);
     }
 
     updateStorage(newStorage) {
         this.setState({
             storage: newStorage
         });
+    }
+
+    addOneToCart(cartItem) {
+        const newStorage = BookStorage.addToStorage(cartItem);
+
+        this.updateStorage(newStorage);
+    }
+
+    removeOneFromCart(cartItem) {
+        const newStorage = BookStorage.removeOneFromStorage(cartItem);
+
+        this.updateStorage(newStorage);
     }
 
     removeFromCart(cartItem) {
@@ -29,6 +43,7 @@ class Cart extends React.Component {
 
     submitCart() {
         BookStorage.initStorage();
+
         this.props.history.push('/');
     }
 
@@ -37,7 +52,7 @@ class Cart extends React.Component {
             <Row bsClass={'book-cart row'}>
                 <Col xs={12}>
                     <Panel header={'Cart'}>
-                        <CartListItem storage={this.state.storage} removeFromCart={this.removeFromCart} handleSubmit={this.submitCart} />
+                        <CartListItem storage={this.state.storage} addOneToCart={this.addOneToCart} removeOneFromCart={this.removeOneFromCart} removeFromCart={this.removeFromCart} handleSubmit={this.submitCart} />
                     </Panel>
                 </Col>
             </Row>
