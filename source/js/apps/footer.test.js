@@ -10,8 +10,8 @@ describe('Footer component', () => {
         const footerWrapper = shallow(<Footer />);
 
         // THEN
-        expect(footerWrapper.find(Grid)).toHaveLength(1);
-        expect(footerWrapper.find('h2')).toHaveLength(1);
+        expect(footerWrapper.find('a')).toHaveLength(4);
+        expect(footerWrapper.find('footer')).toHaveLength(1);
     });
 
     it('should match snapshot with footerSnapshot', () => {

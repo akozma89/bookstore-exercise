@@ -17,7 +17,7 @@ describe('Menu component', () => {
 
         // THEN
         expect(menuWrapper.find(Navbar)).toHaveLength(1);
-        expect(menuWrapper.find(Nav)).toHaveLength(1);
+        expect(menuWrapper.find(Navbar.Form)).toHaveLength(1);
         expect(menuWrapper.find(BookSearchInput)).toHaveLength(1);
         expect(menuWrapper.find(Glyphicon)).toHaveLength(2);
         expect(menuWrapper.find(Link)).toHaveLength(2);
