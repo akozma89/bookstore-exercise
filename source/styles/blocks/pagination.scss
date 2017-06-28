@@ -1,3 +1,32 @@
+@import '../variables.scss';
+
 .book-pagination {
   text-align: center;
+
+  li {
+    transition: opacity .2s ease-in;
+
+    > a {
+      color: $primary-color-dark;
+      border-color: $divider-color;
+      background-color: $primary-color-text;
+
+      &.disabled {
+        display: none;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &:focus {
+        background-color: $primary-color-text;
+        outline: none;
+      }
+    }
+
+    &.disabled {
+      opacity: 0;
+    }
+  }
 }

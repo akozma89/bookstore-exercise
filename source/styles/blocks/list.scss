@@ -5,14 +5,14 @@
     height: $thumb-max-size;
     position: relative;
     box-shadow: 0 0 5px 1px $divider-color;
-    border:none;
+    border: none;
 
     img {
       height: 100%;
       max-height: $thumb-max-size / 1.8;
     }
 
-    .caption{
+    .caption {
       position: absolute;
       left: 0;
       bottom: 5px;
@@ -31,11 +31,11 @@
       align-items: stretch;
       padding-top: $padding-small;
 
-      & > button {
+      > button {
         flex: 1;
       }
 
-      & > a {
+      > a {
         flex: 1;
         button {
           width: 100%;
@@ -47,13 +47,10 @@
       }
     }
   }
-}
 
-@media (min-width: 768px) {
-  .book-list-content {
-    > .row + .row {
+  @media (min-width: 768px) {
+    & > .row + .row {
       padding-top: 20px;
-
     }
   }
 }

@@ -6,7 +6,7 @@ import BookSearchInput                      from '../components/searchInput';
 class Menu extends React.Component {
     render() {
         return (
-            <Navbar inverse collapseOnSelect>
+            <Navbar collapseOnSelect>
                 <Navbar.Header>
                     <Link to="/">
                         <Navbar.Brand>
@@ -18,9 +18,10 @@ class Menu extends React.Component {
                 <Navbar.Collapse>
                     <Navbar.Form>
                         <BookSearchInput />
-                        <Link to="/cart">
+                        <Link to="/cart" className="menu-cart-button">
                             <Button>
-                                <Glyphicon glyph="shopping-cart" />
+                                <Glyphicon glyph="shopping-cart" className="hidden-xs" />
+                                <span className="hidden-sm hidden-md hidden-lg">Go to Cart</span>
                             </Button>
                         </Link>
                     </Navbar.Form>

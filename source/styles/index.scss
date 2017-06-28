@@ -43,29 +43,29 @@ body {
 }
 
 #bookstore-app {
-  & > .container {
+  > .container {
     padding-top: $padding-medium;
     padding-bottom: 80px;
   }
 
   .btn {
-    & .btn-success {
+    .btn-success {
       background-color: $accent-color;
       border-color: $divider-color;
       color: $primary-color-text;
     }
 
-    & .btn-success:hover {
+    .btn-success:hover {
       background-color: $accent-color-hover;
       border-color: $divider-color;
     }
 
-    & .btn-default {
+    .btn-default {
       color: $primary-text-color;
       border-color: $divider-color;
     }
 
-    & .btn-default:hover {
+    .btn-default:hover {
       background-color: $divider-color-light;
     }
   }

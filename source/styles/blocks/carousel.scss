@@ -8,20 +8,20 @@
   .item {
     transition: transform .5s ease-in;
     
-    &.next, .next.left {
+    &.next, &.next.left {
       top: $padding-large;
     }
 
-    & img {
-      float:left;
+    img {
+      float: left;
       width: 10%;
     }
 
-    & a, a:hover {
+    a, a:hover {
       text-decoration: none;
     }
 
-    & .carousel-caption {
+    .carousel-caption {
       text-align: left;
       position: relative;
       left: 0;
@@ -44,6 +44,20 @@
         background-color: $primary-color;
         color: $primary-color-text;
         margin: 0;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .carousel-inner .item {
+      img {
+        display: none;
+      }
+
+      .carousel-caption {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
       }
     }
   }

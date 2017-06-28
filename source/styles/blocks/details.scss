@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
 .book-details {
-  & .row:first-of-type h2 {
+  .row:first-of-type h2 {
     display: inline-block;
     margin: 0 $margin-small 0 0;
   }
@@ -11,10 +11,10 @@
 
   }
 
-  & ul:first-of-type {
+  ul:first-of-type {
     display: inline-block;
 
-    & li {
+    li {
       display: inline-block;
     }
 
@@ -26,7 +26,6 @@
   ul {
     list-style-type: none;
     margin: 0;
-
   }
 
   ul, li {
@@ -45,7 +44,7 @@
     display: flex;
     align-items: center;
 
-    & > h2 {
+    > h2 {
       margin: 0;
     }
 
