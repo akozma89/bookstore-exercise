@@ -1,20 +1,28 @@
 import {Row, Col, Panel} from 'react-bootstrap/lib/';
 import BookListItem from '../common/bookListItem';
+import BookPagination from '../common/pagination';
 import BookApi from '../helpers/network';
 
 class Books extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            BookList: []
+            BookList: [],
+            totalItems: null,
+            activePage: 1
         };
 
         this.setBookList    = this.setBookList.bind(this);
         this.updateBookList = this.updateBookList.bind(this);
+        this.changePage     = this.changePage.bind(this);
     }
 
     setBookList(data) {
-        if (!data) {
+        if (!data || !data.items) {
+            this.setState({
+                activePage: this.state.activePage !== 1 ? this.state.activePage - 1 : 1
+            });
+
             throw Error('Something went wrong');
         }
 
@@ -31,12 +39,30 @@ class Books extends React.Component {
         this.setState({
             BookList: BookList
         });
+
+        if (!this.state.totalItems) {
+            this.setState({
+                totalItems: Math.round(data.totalItems / 12)
+            });
+        }
     }
 
-    updateBookList(searchQuery) {
-        BookApi.list(searchQuery).then((response) => response.json()).then(this.setBookList).catch((error) => {
-            console.error(error);
+    updateBookList(searchQuery, start) {
+        BookApi.list(searchQuery, start).then((response) => response.json()).then(this.setBookList).catch((error) => {
+            throw Error(error);
         });
+    }
+
+    changePage(eventKey) {
+        const listStartIndex = eventKey === 1 ? 0 : ((eventKey - 1) * 12);
+
+        if (this.state.activePage !== eventKey) {
+            this.setState({
+                activePage: eventKey
+            });
+
+            this.updateBookList(this.props.match.params.query, listStartIndex);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -55,6 +81,11 @@ class Books extends React.Component {
                 <Col xs={12}>
                     <Panel header={`Search results for: "${this.props.match.params.query}"`}>
                         <BookListItem books={this.state.BookList}/>
+                        <Row bsClass={`row book-pagination ${!this.state.BookList.length && 'hidden'}`} >
+                            <Col xs={12}>
+                                <BookPagination totalItems={this.state.totalItems} activePage={this.state.activePage} changePage={(eventKey) => this.changePage(eventKey)} />
+                            </Col>
+                        </Row>
                     </Panel>
                 </Col>
 
