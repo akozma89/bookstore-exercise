@@ -1,16 +1,13 @@
-import Menu from './menu';
-import { Navbar, Nav, Glyphicon } from 'react-bootstrap/lib/';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-import BookSearchInput from '../components/searchInput';
+import renderer                             from 'react-test-renderer';
+import { shallow }                          from 'enzyme';
 
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { Navbar, Glyphicon }                from 'react-bootstrap/lib/';
+import { BrowserRouter as Router, Link }    from 'react-router-dom';
+
+import Menu                                 from './menu';
+import BookSearchInput                      from '../components/searchInput';
 
 describe('Menu component', () => {
-    it('should have router', () => {
-
-    });
-
     it('should render Menu component with necessary items', () => {
         // GIVEN
         const menuWrapper = shallow(<Menu />);

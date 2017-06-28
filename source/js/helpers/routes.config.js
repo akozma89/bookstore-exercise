@@ -1,20 +1,24 @@
-import Home from '../sections/home';
-import Books from '../sections/books';
-import Book from '../sections/book';
-import Cart from '../sections/cart';
+import Home     from '../sections/home';
+import Books    from '../sections/books';
+import Book     from '../sections/book';
+import Cart     from '../sections/cart';
 
 const RootConfig = [
     {
-        path: '/cart',
-        component: Cart
+        path:       '/',
+        component:  Home
     },
     {
-        path: '/books/:query',
-        component: Books
+        path:       '/cart',
+        component:  Cart
     },
     {
-        path: '/book/:id',
-        component: Book
+        path:       '/books/:query',
+        component:  Books
+    },
+    {
+        path:       '/book/:id',
+        component:  Book
     }
 ];
 

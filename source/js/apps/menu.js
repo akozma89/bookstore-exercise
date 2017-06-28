@@ -1,6 +1,7 @@
-import { Navbar, Nav, Glyphicon, Button } from 'react-bootstrap/lib/';
-import { Link } from 'react-router-dom';
-import BookSearchInput from '../components/searchInput';
+import { Navbar, Nav, Glyphicon, Button }   from 'react-bootstrap/lib/';
+import { Link }                             from 'react-router-dom';
+
+import BookSearchInput                      from '../components/searchInput';
 
 class Menu extends React.Component {
     render() {

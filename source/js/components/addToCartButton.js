@@ -1,4 +1,5 @@
 import { Button, Glyphicon } from 'react-bootstrap/lib/';
+
 import BookStorage from '../helpers/storage';
 
 const addToCartAction = (book, callback) => {

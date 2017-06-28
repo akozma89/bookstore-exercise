@@ -10,9 +10,7 @@ const buildBookObject = (book) => {
         authors:                bookVolumeInfo.authors,
         publishedDate:          bookVolumeInfo.publishedDate,
         industryIdentifiers:    bookVolumeInfo.industryIdentifiers,
-        saleInfo:               (saleInfo && saleInfo.saleability === 'FOR_SALE') && {
-            price: saleInfo.listPrice
-        }
+        saleInfo:               (saleInfo && saleInfo.saleability === 'FOR_SALE') && { price: saleInfo.listPrice }
     };
 };
 

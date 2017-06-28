@@ -2,9 +2,9 @@ import Menu     from './apps/menu';
 import Content  from './apps/Content';
 import Footer   from './apps/Footer';
 
-jest.mock('./apps/menu', () => 'MenuMock');
+jest.mock('./apps/menu',    () => 'MenuMock');
 jest.mock('./apps/Content', () => 'Content');
-jest.mock('./apps/Footer', () => 'Footer');
+jest.mock('./apps/Footer',  () => 'Footer');
 
 import Index from './index';
 

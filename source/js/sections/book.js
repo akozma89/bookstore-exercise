@@ -27,7 +27,7 @@ class Book extends React.Component {
 
     getBookDetails(id) {
         BookApi.get(id).then((response) => response.json()).then(this.setBookDetails).catch((error) => {
-            throw Error('Something went wrong.');
+            throw Error('Something went wrong.', error);
         });
     }
 

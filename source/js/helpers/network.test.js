@@ -24,7 +24,7 @@ describe('BookApi', () => {
         it('should send fetch on right url with startIndex', () => {
             // GIVEN
             const mockQuery = 'testBook',
-                startIndex = 12;
+                  startIndex = 12;
 
             // WHEN
             BookApi.list(mockQuery, startIndex);

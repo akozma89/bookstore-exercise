@@ -1,14 +1,16 @@
-import {Row, Col, Panel} from 'react-bootstrap/lib/';
-import BookListItem from '../components/bookListItem';
-import BookPagination from '../components/pagination';
-import BookApi from '../helpers/network';
-import buildBookObject  from '../helpers/bookObject';
+import {Row, Col, Panel}    from 'react-bootstrap/lib/';
+
+import BookListItem         from '../components/bookListItem';
+import BookPagination       from '../components/pagination';
+import BookApi              from '../helpers/network';
+import buildBookObject      from '../helpers/bookObject';
 
 class Books extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            BookList: [],
+            BookList:   [],
             totalItems: null,
             activePage: 1
         };
@@ -42,7 +44,7 @@ class Books extends React.Component {
 
     updateBookList(searchQuery, start) {
         BookApi.list(searchQuery, start).then((response) => response.json()).then(this.setBookList).catch((error) => {
-            throw Error(error);
+            throw Error('Something went wrong.', error);
         });
     }
 
@@ -74,6 +76,7 @@ class Books extends React.Component {
                 <Col xs={12}>
                     <Panel header={`Search results for: "${this.props.match.params.query}"`}>
                         <BookListItem books={this.state.BookList}/>
+
                         <Row bsClass={`row book-pagination ${!this.state.BookList.length && 'hidden'}`} >
                             <Col xs={12}>
                                 <BookPagination totalItems={this.state.totalItems} activePage={this.state.activePage} changePage={(eventKey) => this.changePage(eventKey)} />

@@ -3,14 +3,13 @@ import { Pagination } from 'react-bootstrap/lib/';
 class BookPagination extends React.Component {
     render() {
         return (
-            <Pagination
-                prev
-                next
+            <Pagination prev next
                 ellipsis={false}
                 items={this.props.totalItems}
-                maxButtons={3}
+                maxButtons={5}
                 activePage={this.props.activePage}
-                onSelect={this.props.changePage} />
+                onSelect={this.props.changePage}
+            />
         );
     }
 }

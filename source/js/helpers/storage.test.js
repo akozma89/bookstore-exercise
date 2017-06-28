@@ -1,7 +1,7 @@
 import BookStorage from './storage';
 
-const storageKey = '__BookStorage.Cart__';
-global.sessionStorage = localStorage;
+const storageKey        = '__BookStorage.Cart__';
+global.sessionStorage   = localStorage;
 
 describe('BookStorage', () => {
     const defaultStorageMock = {
@@ -97,9 +97,9 @@ describe('BookStorage', () => {
             });
 
             it('should increase inner object quantity number and NOT add new object', () => {
-                const expectedResult = extendedStorageMock,
-                    expectedItemResult = cartItemMock1,
-                    expectedArrayLength = extendedStorageMock.cart.length;
+                const expectedResult        = extendedStorageMock,
+                      expectedItemResult    = cartItemMock1,
+                      expectedArrayLength   = extendedStorageMock.cart.length;
 
                 // GIVEN
                 expectedItemResult.quantity++;
@@ -119,8 +119,8 @@ describe('BookStorage', () => {
 
     describe('.removeOneFromStorage', () => {
         it('should decrease inner object quantity number and not remove from array', () => {
-            const expectedResult = extendedStorageMock,
-                expectedArrayLength = extendedStorageMock.cart.length;
+            const expectedResult        = extendedStorageMock,
+                  expectedArrayLength   = extendedStorageMock.cart.length;
 
             // GIVEN
             expectedResult.cart[0].quantity = 2;
@@ -138,8 +138,8 @@ describe('BookStorage', () => {
         });
 
         it('should remove inner object if the quantity less then 0', () => {
-            const expectedResult = extendedStorageMock,
-                expectedArrayLength = extendedStorageMock.cart.length - 1;
+            const expectedResult        = extendedStorageMock,
+                  expectedArrayLength   = extendedStorageMock.cart.length - 1;
 
             // GIVEN
             expectedResult.cart.shift();
@@ -162,8 +162,8 @@ describe('BookStorage', () => {
         });
 
         it('should completly remove inner object', () => {
-            const expectedResult = extendedStorageMock,
-                expectedArrayLength = extendedStorageMock.cart.length - 1;
+            const expectedResult        = extendedStorageMock,
+                  expectedArrayLength   = extendedStorageMock.cart.length - 1;
 
             // GIVEN
             expectedResult.cart.shift();

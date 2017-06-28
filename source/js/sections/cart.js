@@ -1,7 +1,8 @@
-import { Row, Panel, Col } from 'react-bootstrap/lib/';
-import BookStorage from '../helpers/storage';
-import CartListItem from '../components/cartListItem';
-import BookNotifications from '../components/notifications';
+import { Row, Panel, Col }  from 'react-bootstrap/lib/';
+
+import BookStorage          from '../helpers/storage';
+import CartListItem         from '../components/cartListItem';
+import BookNotifications    from '../components/notifications';
 
 class Cart extends React.Component {
     constructor(props) {
@@ -23,17 +24,17 @@ class Cart extends React.Component {
 
     updateStorage(newStorage, action) {
         this.setState({
-            storage: newStorage,
-            action: action
+            storage:    newStorage,
+            action:     action
         });
     }
 
     showNotification(action, style, item) {
         this.setState({
             action: {
-                style: style,
+                style:  style,
                 action: action,
-                title: item.title
+                title:  item.title
             }
         });
     }
@@ -76,7 +77,11 @@ class Cart extends React.Component {
             <Row bsClass={'book-cart row'}>
                 <Col xs={12}>
                     <Panel header={'Cart'}>
-                        {this.state.action ? (<BookNotifications action={this.state.action.action} style={this.state.action.style} title={this.state.action.title} removeNotification={this.removeNotification} />) : ''}
+                        {this.state.action ?
+                            <BookNotifications action={this.state.action.action} style={this.state.action.style} title={this.state.action.title} removeNotification={this.removeNotification} /> :
+                            ''
+                        }
+
                         <CartListItem storage={this.state.storage} addOneToCart={this.addOneToCart} removeOneFromCart={this.removeOneFromCart} removeFromCart={this.removeFromCart} handleSubmit={this.submitCart} />
                     </Panel>
                 </Col>

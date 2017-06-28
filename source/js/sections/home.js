@@ -1,11 +1,13 @@
-import {Row, Col, Panel} from 'react-bootstrap/lib/';
-import BookCarousel from '../components/carousel';
+import {Row, Col, Panel}    from 'react-bootstrap/lib/';
+
+import BookCarousel         from '../components/carousel';
 
 class Cart extends React.Component {
     render() {
         return (
             <div>
                 <BookCarousel />
+
                 <Row>
                     <Col xs={12}>
                         <Panel header={'I hope you will find what you want'}>

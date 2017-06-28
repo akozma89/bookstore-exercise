@@ -1,4 +1,4 @@
-import BookSearchInput from '../common/searchInput';
+import BookSearchInput from '../components/searchInput';
 import { InputGroup, Button, FormControl, Glyphicon } from 'react-bootstrap/lib/';
 import { Link } from 'react-router-dom';
 

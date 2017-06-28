@@ -1,5 +1,6 @@
-import { InputGroup, Button, FormControl, Glyphicon } from 'react-bootstrap/lib/';
 import { Link } from 'react-router-dom';
+
+import { InputGroup, Button, FormControl, Glyphicon } from 'react-bootstrap/lib/';
 
 class BookSearchInput extends React.Component {
     constructor(props) {
@@ -37,10 +38,12 @@ class BookSearchInput extends React.Component {
                     onChange={this.handleChange}
                     ref={(input) => { this.searchInput = input; }}
                 />
+
                 <InputGroup.Button>
                     <Button onClick={() => this.redirectToBook()}>
                         <Glyphicon glyph="search" />
                     </Button>
+
                     <Link to={`/books/${this.state.searchValue}`} ref={(link) => { this.goToBook = link; }}/>
                 </InputGroup.Button>
             </InputGroup>

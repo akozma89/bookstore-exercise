@@ -1,8 +1,9 @@
-import Footer from './footer';
-import { Grid } from 'react-bootstrap/lib/';
+import renderer     from 'react-test-renderer';
+import { shallow }  from 'enzyme';
 
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { Grid }     from 'react-bootstrap/lib/';
+
+import Footer       from './footer';
 
 describe('Footer component', () => {
     it('should render Footer component with necessary items', () => {
@@ -10,8 +11,9 @@ describe('Footer component', () => {
         const footerWrapper = shallow(<Footer />);
 
         // THEN
-        expect(footerWrapper.find('a')).toHaveLength(4);
+        expect(footerWrapper.find(Grid)).toHaveLength(1);
         expect(footerWrapper.find('footer')).toHaveLength(1);
+        expect(footerWrapper.find('a')).toHaveLength(4);
     });
 
     it('should match snapshot with footerSnapshot', () => {

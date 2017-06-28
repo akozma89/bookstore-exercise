@@ -1,8 +1,10 @@
-import { Row, Col, Panel, Label } from 'react-bootstrap/lib/';
-import AddToCartButton from '../common/addToCartButton';
-import CustomList from '../common/unorderedList';
-import BookNotifications from '../common/notifications';
-import noImage from '../../images/no-image-available.jpg';
+import { Row, Col, Panel, Label }   from 'react-bootstrap/lib/';
+
+import AddToCartButton              from '../components/addToCartButton';
+import CustomList                   from '../components/unorderedList';
+import BookNotifications            from '../components/notifications';
+
+import noImage                      from '../../images/no-image-available.jpg';
 
 class BookDetails extends React.Component {
     constructor(props) {
@@ -21,9 +23,9 @@ class BookDetails extends React.Component {
     showNotification(action, style, item) {
         this.setState({
             action: {
-                style: style,
+                style:  style,
                 action: action,
-                title: item.title
+                title:  item.title
             }
         });
     }
@@ -52,6 +54,7 @@ class BookDetails extends React.Component {
         return (
             <div key={'priceblock-available'} className={'price-block'}>
                 <h2>{`${retail.price.amount} ${retail.price.currencyCode}`}</h2>
+
                 <AddToCartButton book={book} callback={() => this.showNotification('added one piece of', 'success', book)} />
             </div>
         );
@@ -64,20 +67,30 @@ class BookDetails extends React.Component {
             return (
                 <Row bsClass={'book-details row'}>
                     <Panel header={book.title} bsStyle="info">
-                        {this.state.action ? (<BookNotifications action={this.state.action.action} style={this.state.action.style} title={this.state.action.title} removeNotification={this.removeNotification} />) : ''}
+                        {this.state.action ?
+                            <BookNotifications action={this.state.action.action} style={this.state.action.style} title={this.state.action.title} removeNotification={this.removeNotification} /> :
+                            ''
+                        }
+
                         <Row>
                             <Col xs={12}>
                                 <h2>{`${(book.authors.length === 1) ? 'Author:' : 'Authors:'}`}</h2>
+
                                 <CustomList customList={book.authors} />
+
                                 {this.buildPriceBlock(book)}
                             </Col>
                         </Row>
+
                         <Row>
                             <Col xs={12}>
                                 <h2>Description</h2>
                                 <p>
                                     <img src={book.images ? book.images.medium : noImage} />
-                                    {book.description ? this.removeHTMLTags(book.description) : ('This book has no description.')}
+
+                                    {book.description ?
+                                        this.removeHTMLTags(book.description) :
+                                        ('This book has no description.')}
                                 </p>
                             </Col>
                         </Row>

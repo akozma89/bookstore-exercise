@@ -12,5 +12,4 @@ const BookApi = {
     }
 };
 
-
 export default BookApi;
