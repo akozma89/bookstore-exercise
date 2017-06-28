@@ -32,7 +32,8 @@ describe('BookStorage', () => {
             returnedStorage = BookStorage.get();
 
             // THEN
-            expect(sessionStorage.getItem).toHaveBeenCalledWith(storageKey);
+            expect(sessionStorage.clear).toHaveBeenLastCalledWith(storageKey);
+            expect(sessionStorage.getItem).toHaveBeenLastCalledWith(storageKey);
             expect(sessionStorage.setItem).toHaveBeenLastCalledWith(storageKey, stringifiedStorageMock);
             expect(JSON.stringify(returnedStorage)).toEqual(stringifiedStorageMock);
         });

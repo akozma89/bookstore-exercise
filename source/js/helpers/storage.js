@@ -5,6 +5,8 @@ const storageKey = '__BookStorage.Cart__',
 
 const BookStorage = {
     initStorage: () => {
+        sessionStorage.clear(storageKey);
+
         BookStorage.set(defaultStorage);
 
         return defaultStorage;
