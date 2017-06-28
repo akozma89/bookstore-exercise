@@ -12,14 +12,13 @@ let mockComponent,
     container;
 
 describe('index module', function() {
-    const expectedResult = 'This isn\'t crashed';
-
     beforeEach(() => {
         // GIVEN
         container = document.createElement('div');
     });
 
     it('should properly initialised', () => {
+        // THEN
         expect(Index).toBeDefined();
     });
 
@@ -29,9 +28,6 @@ describe('index module', function() {
             <Menu />,
             container
         );
-
-        // THEN
-        expect(expectedResult).toEqual(expectedResult);
     });
 
     it('should be able to render Content component without crash', () => {
@@ -40,9 +36,6 @@ describe('index module', function() {
             <Content />,
             container
         );
-
-        // THEN
-        expect(expectedResult).toEqual(expectedResult);
     });
 
     it('should be able to render Footer component without crash', () => {
@@ -51,8 +44,5 @@ describe('index module', function() {
             <Footer />,
             container
         );
-
-        // THEN
-        expect(expectedResult).toEqual(expectedResult);
     });
 });

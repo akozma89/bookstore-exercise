@@ -38,7 +38,7 @@ class BookListItem extends React.Component {
 
     buildBookItem(book) {
         return (
-            <Col xs={12} md={6} lg={3} key={book.id}>
+            <Col xs={12} sm={6} lg={3} key={book.id}>
                 <Thumbnail src={book.images ? book.images.smallThumbnail : noImage} alt={book.title}>
                     <h2>{book.title.length < 65 ? book.title : `${book.title.slice(0, 64)}...` }</h2>
 
