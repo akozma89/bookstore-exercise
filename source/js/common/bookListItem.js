@@ -1,13 +1,36 @@
 import {Row, Col, Thumbnail, Button} from 'react-bootstrap/lib/';
 import { Link } from 'react-router-dom';
 import AddToCartButton from '../common/addToCartButton';
+import BookNotifications from '../common/notifications';
 import noImage from '../../images/no-image-available.jpg';
 
 class BookListItem extends React.Component {
     constructor(props) {
         super(props);
 
-        this.buildBookItem = this.buildBookItem.bind(this);
+        this.state = {
+            action: null
+        };
+
+        this.buildBookItem      = this.buildBookItem.bind(this);
+        this.showNotification   = this.showNotification.bind(this);
+        this.removeNotification = this.removeNotification.bind(this);
+    }
+
+    showNotification(action, style, item) {
+        this.setState({
+            action: {
+                style: style,
+                action: action,
+                title: item.title
+            }
+        });
+    }
+
+    removeNotification() {
+        this.setState({
+            action: null
+        });
     }
 
     buildBookItem(book) {
@@ -19,7 +42,7 @@ class BookListItem extends React.Component {
                         <Link to={ `/book/${book.id}` }>
                             <Button bsStyle="default">Read more</Button>
                         </Link>
-                        <AddToCartButton book={book} />
+                        {book.saleInfo && <AddToCartButton book={book} callback={() => this.showNotification('added one piece of', 'success', book)} />}
                     </div>
                 </Thumbnail>
             </Col>
@@ -39,12 +62,14 @@ class BookListItem extends React.Component {
             BookRows.push((
                 <Row key={row}>
                     {rowItems}
+
                 </Row>
             ));
         }
 
         return (
             <div className="book-list-content">
+                {this.state.action ? (<BookNotifications action={this.state.action.action} style={this.state.action.style} title={this.state.action.title} removeNotification={this.removeNotification} />) : ''}
                 {BookRows}
             </div>
         );

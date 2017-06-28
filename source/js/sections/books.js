@@ -30,9 +30,10 @@ class Books extends React.Component {
             const itemVolumeInfo = item.volumeInfo;
 
             return {
-                id: item.id,
-                title: itemVolumeInfo.title,
-                images: itemVolumeInfo.imageLinks
+                id:         item.id,
+                title:      itemVolumeInfo.title,
+                images:     itemVolumeInfo.imageLinks,
+                saleInfo:   item.saleInfo && item.saleInfo.saleability === 'FOR_SALE' && true
             };
         });
 

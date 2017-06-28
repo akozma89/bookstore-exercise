@@ -1,14 +1,37 @@
 import { Row, Col, Panel, Label } from 'react-bootstrap/lib/';
 import AddToCartButton from '../common/addToCartButton';
 import CustomList from '../common/unorderedList';
+import BookNotifications from '../common/notifications';
 import noImage from '../../images/no-image-available.jpg';
 
 class BookDetails extends React.Component {
     constructor(props) {
         super(props);
 
-        this.removeHTMLTags = this.removeHTMLTags.bind(this);
-        this.buildPriceBlock = this.buildPriceBlock.bind(this);
+        this.state = {
+            action: null
+        };
+
+        this.removeHTMLTags     = this.removeHTMLTags.bind(this);
+        this.buildPriceBlock    = this.buildPriceBlock.bind(this);
+        this.buildPriceBlock    = this.buildPriceBlock.bind(this);
+        this.removeNotification = this.removeNotification.bind(this);
+    }
+
+    showNotification(action, style, item) {
+        this.setState({
+            action: {
+                style: style,
+                action: action,
+                title: item.title
+            }
+        });
+    }
+
+    removeNotification() {
+        this.setState({
+            action: null
+        });
     }
 
     removeHTMLTags(text) {
@@ -29,7 +52,7 @@ class BookDetails extends React.Component {
         return (
             <div key={'priceblock-available'} className={'price-block'}>
                 <h2>{`${retail.price.amount} ${retail.price.currencyCode}`}</h2>
-                <AddToCartButton book={book} />
+                <AddToCartButton book={book} callback={() => this.showNotification('added one piece of', 'success', book)} />
             </div>
         );
     }
@@ -41,6 +64,7 @@ class BookDetails extends React.Component {
             return (
                 <Row bsClass={'book-details row'}>
                     <Panel header={book.title} bsStyle="info">
+                        {this.state.action ? (<BookNotifications action={this.state.action.action} style={this.state.action.style} title={this.state.action.title} removeNotification={this.removeNotification} />) : ''}
                         <Row>
                             <Col xs={12}>
                                 <h2>{`${(book.authors.length === 1) ? 'Author:' : 'Authors:'}`}</h2>
