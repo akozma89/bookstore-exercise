@@ -33,7 +33,7 @@ class BookListItem extends React.Component {
             rows = Math.floor(BookList.length / 4),
             BookRows = [];
 
-        for (let row = 0; row <= rows; row++) {
+        for (let row = 0; row < rows; row++) {
             const rowItems = BookList.filter((item, index) => Math.floor(index / 4) === row);
 
             BookRows.push((
