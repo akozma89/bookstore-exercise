@@ -1,6 +1,6 @@
 import {Row, Col, Panel} from 'react-bootstrap/lib/';
-import BookListItem from '../common/bookListItem';
-import BookPagination from '../common/pagination';
+import BookListItem from '../components/bookListItem';
+import BookPagination from '../components/pagination';
 import BookApi from '../helpers/network';
 
 class Books extends React.Component {

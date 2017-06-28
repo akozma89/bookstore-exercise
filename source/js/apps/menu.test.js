@@ -1,7 +1,7 @@
 import Menu from './menu';
 import { Navbar, Nav, Glyphicon } from 'react-bootstrap/lib/';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import BookSearchInput from '../common/searchInput';
+import BookSearchInput from '../components/searchInput';
 
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';

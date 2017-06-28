@@ -1,5 +1,5 @@
 import {Row, Col, Panel} from 'react-bootstrap/lib/';
-import BookCarousel from '../common/carousel';
+import BookCarousel from '../components/carousel';
 
 class Cart extends React.Component {
     render() {

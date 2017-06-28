@@ -1,4 +1,4 @@
-import BookDetails from '../common/BookDetails';
+import BookDetails from '../components/BookDetails';
 import BookApi from '../helpers/network';
 import BookStorage from '../helpers/storage';
 

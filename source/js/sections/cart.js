@@ -1,7 +1,7 @@
 import { Row, Panel, Col } from 'react-bootstrap/lib/';
 import BookStorage from '../helpers/storage';
-import CartListItem from '../common/cartListItem';
-import BookNotifications from '../common/notifications';
+import CartListItem from '../components/cartListItem';
+import BookNotifications from '../components/notifications';
 
 class Cart extends React.Component {
     constructor(props) {
