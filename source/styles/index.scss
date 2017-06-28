@@ -45,4 +45,26 @@ body {
     padding-top: $padding-medium;
     padding-bottom: 80px;
   }
+
+  .btn {
+    & .btn-success {
+      background-color: $accent-color;
+      border-color: $divider-color;
+      color: $primary-color-text;
+    }
+
+    & .btn-success:hover {
+      background-color: $accent-color-hover;
+      border-color: $divider-color;
+    }
+
+    & .btn-default {
+      color: $primary-text-color;
+      border-color: $divider-color;
+    }
+
+    & .btn-default:hover {
+      background-color: $divider-color-light;
+    }
+  }
 }

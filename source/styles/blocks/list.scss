@@ -28,13 +28,29 @@
       align-items: stretch;
       padding-top: $padding-small;
 
-      button {
+      & > button {
         flex: 1;
+      }
+
+      & > a {
+        flex: 1;
+        button {
+          width: 100%;
+        }
       }
 
       a + button {
         margin-left: $margin-small;
       }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .book-list-content {
+    > .row + .row {
+      padding-top: 20px;
+
     }
   }
 }
